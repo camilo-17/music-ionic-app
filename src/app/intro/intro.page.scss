@@ -1,0 +1,43 @@
+
+ion-content {
+    --background: var(--ion-color-tertiary); //si nose tiene el -- no funciona https://ionicframework.com/docs/api/badge#css-custom-properties
+    font-family: "Garamond", Times, serif;
+  }
+  ion-slides {
+    background-color: white;
+    height: 100%;
+    max-width: 800px;
+  }
+  .swiper-slide {
+    flex-direction: column;
+    margin-bottom: 64px;
+    background-color: white;
+  }
+  ion-slide > h1,
+  h2 {
+    margin: 0 0 0 0;
+    color: var(--ion-color-primary);
+  }
+  ion-slide > p {
+    font-style: garamond;
+    font-size: 22px;
+    padding: 0.1em 1em 1em 1em;
+    text-align: justify;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+  ion-slide > ion-icon {
+    color: var(--ion-color-primary);
+    font-size: 48px;
+  }
+  ion-slide > ion-icon[name="close"] {
+    float: right;
+    color: var(--ion-color-primary);
+    font-size: 48px;
+  }
+  
+  ion-slide > img {
+    max-height: 50%;
+    max-width: 60%;
+    margin: 10px 0;
+  }

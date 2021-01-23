@@ -1,0 +1,37 @@
+<ion-content class="ion-padding">
+  <figure class="ion-text-center ion-padding">
+    <img src="../../assets/icon/favicon.png" alt="logo"/>
+  </figure>
+  <form [formGroup]= "loginForm" (ngSubmit)="loginUser(loginForm.value)">
+      <div class="validation-container">
+          <ng-container *ngFor="let validation of Object.keys(validationMessage)">
+            <ng-container *ngFor="let input of validationMessage[validation]">
+                <ion-text class="alerta"
+                *ngIf="!formIsValid(input.type, validation)" color="danger">
+                   <p>{{input.message}}</p> 
+                </ion-text>
+            </ng-container>
+          </ng-container>
+      </div>
+    <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text" formControlName="email"  autofocus="true"  clearInput="true"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" formControlName="password" ></ion-input>
+    </ion-item>
+    <div class="ion-text-center ion-margin-top">
+        {{errorMsg}}
+        <ion-button expand="block" [disabled] = "!loginForm.valid" type="submit" >ENTRAR</ion-button>
+        <div class="register-label">
+            <ion-text>¿No tienes cuenta?</ion-text>
+        </div>
+        <ion-button expand="block" fill="outline" (click) ="goToRegister()" >REGISTRARSE</ion-button>
+    </div>
+  </form>
+</ion-content>
+
+<ion-footer  class="ion-text-center" >
+  
+</ion-footer>

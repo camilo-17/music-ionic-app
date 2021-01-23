@@ -1,0 +1,55 @@
+<ion-content class="ion-padding">
+    <figure class="ion-text-center ion-padding">
+      <img src="../../assets/icon/favicon.png" alt="logo"/>
+    </figure>
+    <form [formGroup]= "registerForm" (ngSubmit)="loginUser(registerForm.value)">
+        <div class="validation-container">
+            <ng-container *ngFor="let validation of Object.keys(validationMessage)">
+              <ng-container *ngFor="let input of validationMessage[validation]">
+                  <ion-text 
+                  class="alerta"
+                  *ngIf="!formIsValid(input.type, validation)" color="danger">
+                     <p>{{input.message}}</p> 
+                  </ion-text>
+              </ng-container>
+            </ng-container>
+        </div>
+        <ion-item>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input type="text" formControlName="name"  autofocus="true"  clearInput="true"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Apellido</ion-label>
+            <ion-input type="text" formControlName="lastname"  clearInput="true"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Genero</ion-label>
+            <ion-select formControlName="genre" placeholder="Selecciona">
+                <ion-select-option value="f">Mujer</ion-select-option>
+                <ion-select-option value="m">Hombre</ion-select-option>
+                <ion-select-option value="m">Otro</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="text" formControlName="email"  clearInput="true"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" formControlName="password" ></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Confirma tu Contraseña</ion-label>
+          <ion-input type="password" formControlName="confirmPassword" ></ion-input>
+      </ion-item>
+      <div class="ion-text-center ion-margin-top">
+          {{errorMsg}}
+          <ion-button expand="block" [disabled] = "!registerForm.valid" type="submit" >REGISTRARSE</ion-button>
+      </div>
+    </form>
+  </ion-content>
+  
+  <ion-footer  class="ion-text-center" >
+    
+  </ion-footer>
+  
