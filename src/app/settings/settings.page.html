@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="end">settings</ion-title>
+    <ion-buttons>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <div class="avatar-container">
+      <ion-avatar class="avatar-icon" (click)="takePicture()"  *ngIf="!photo">
+        <ion-icon name="camera-outline" ></ion-icon>
+      </ion-avatar>
+      <div class="div-padd"></div>
+      <ion-avatar class="avatar-img" (click)="takePicture()" *ngIf="photo">
+        <img [src]="photo" alt="" />
+      </ion-avatar>
+    </div>
+  <ion-card-header>
+    <ion-card-subtitle class="ion-text-center"> <h2>Camilo Caro</h2></ion-card-subtitle>
+    <ion-card-title class="ion-text-center"> <strong>andresccamilo17@gmail.com</strong> </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row class="ion-align-items-center ion-text-center row-header">
+        <ion-col>
+          140
+        </ion-col>
+        <ion-col>
+          2k
+        </ion-col>
+        <ion-col>
+          500
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center ion-text-center">
+        <ion-col>
+          Artistas
+        </ion-col>
+        <ion-col>
+          seguidores
+        </ion-col>
+        <ion-col>
+          canciones
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
+<ion-button expand="block" (click)= "showNotification()"></ion-button>
+</ion-content>

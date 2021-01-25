@@ -2,7 +2,7 @@
     <figure class="ion-text-center ion-padding">
       <img src="../../assets/icon/favicon.png" alt="logo"/>
     </figure>
-    <form [formGroup]= "registerForm" (ngSubmit)="loginUser(registerForm.value)">
+    <form [formGroup]= "registerForm" (ngSubmit)="registerUser(registerForm.value)">
         <div class="validation-container">
             <ng-container *ngFor="let validation of Object.keys(validationMessage)">
               <ng-container *ngFor="let input of validationMessage[validation]">

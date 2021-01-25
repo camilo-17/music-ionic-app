@@ -1,0 +1,22 @@
+<ion-grid>
+  <ion-row>
+      <ion-col class="ion-text-start">{{ parserTime(currentSong.currentTime) }}</ion-col>
+      <ion-col class="ion-text-end">{{ parserTime(currentSong.duration) }}</ion-col>
+  </ion-row>
+</ion-grid>
+<!-- <ion-progress-bar [value]="newTime"></ion-progress-bar> -->
+<ion-range value={{newTime}} min="0" max="100" (ionChange)="sliderChange($event)" pin="true" ></ion-range>
+<ion-grid>
+  <ion-row>
+      <ion-col size="1">
+          <ion-icon name="heart-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="10" class="ion-text-center">
+          <ion-text> {{ song?.name  || "Selecciona una canción" }} </ion-text>
+      </ion-col>
+      <ion-col size="1">
+          <ion-icon name="play" (click)="play()" *ngIf="!song?.playing"></ion-icon>
+          <ion-icon name="pause" (click)="pause()" *ngIf="song?.playing"></ion-icon>
+      </ion-col>
+  </ion-row>
+</ion-grid>

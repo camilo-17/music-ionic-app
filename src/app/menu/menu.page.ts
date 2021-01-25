@@ -18,6 +18,11 @@ export class MenuPage implements OnInit {
 
   ngOnInit() {
   }
+
+  goToSettings() {
+    this.navCtrl.navigateRoot('menu/settings');
+    this.menu.close();
+  }
   
   closeMenu() {
     this.menu.close();
@@ -25,5 +30,15 @@ export class MenuPage implements OnInit {
   logOut() {
     this.authService.logOut();
     this.navCtrl.navigateRoot('/login');
+  }
+
+  goToHome() {
+    this.navCtrl.navigateRoot('menu/home');
+    this.menu.close();
+  }
+
+  goToSports(){
+    this.navCtrl.navigateRoot('menu/sports');
+    this.menu.close();
   }
 }

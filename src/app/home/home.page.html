@@ -7,6 +7,63 @@
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-<ion-content  class="ion-padding"> 
-    
+<ion-content  class="ion-padding" *ngIf="showContent"> 
+    <h1>Atristas</h1>
+    <ion-slides [options]="slideOps" *ngIf="artists.length">
+        <ion-slide *ngFor="let artist of artists">
+            <ion-avatar (click)="showSongsByArtist(artist)">
+                <img [src]="artist.images[0].url"/>
+                <span>{{artist.name}}</span>
+            </ion-avatar>
+        </ion-slide>
+    </ion-slides>    
+    <h1>Albums</h1>
+    <ion-slides [options]="slideOps" *ngIf="albums.length">
+        <ion-slide *ngFor="let album of albums">
+            <ion-avatar class="squere-avatar" (click)="showSongsByAlbum(album)">
+                <img [src]="album.images[0].url"/>
+                <span>{{album.name}}</span>
+            </ion-avatar>
+        </ion-slide>
+    </ion-slides>    
+    <h1>Canciones</h1>
+    <ion-slides [options]="slideOps" *ngIf="songs.length">
+        <ion-slide *ngFor="let song of songs">
+            <ion-avatar class="squere-avatar">
+                <img [src]="song.images[0].url"/>
+                <span>{{song.name}}</span>
+            </ion-avatar>
+        </ion-slide>
+    </ion-slides>    
 </ion-content>
+
+<ion-content  class="ion-padding" *ngIf="!showContent"> 
+    <h1>Atristas</h1>
+    <ion-slides [options]="slideOps" *ngIf="artists.length">
+        <ion-slide *ngFor="let artist of artists">
+            <ion-avatar>
+                <ion-skeleton-text></ion-skeleton-text>
+              </ion-avatar>
+        </ion-slide>
+    </ion-slides>    
+    <h1>Albums</h1>
+    <ion-slides [options]="slideOps" *ngIf="albums.length">
+        <ion-slide *ngFor="let album of albums">
+            <ion-avatar class="squere-avatar">
+                <ion-skeleton-text></ion-skeleton-text>
+            </ion-avatar>
+        </ion-slide>
+    </ion-slides>    
+    <h1>Canciones</h1>
+    <ion-slides [options]="slideOps" *ngIf="songs.length">
+        <ion-slide *ngFor="let song of songs">
+            <ion-avatar class="squere-avatar">
+                <ion-skeleton-text></ion-skeleton-text>
+            </ion-avatar>
+        </ion-slide>
+    </ion-slides>    
+</ion-content>
+
+<ion-footer>
+    <app-player></app-player>
+</ion-footer>

@@ -4,3 +4,16 @@
 .register-label {
     padding: 10px;
 }
+
+ion-content {
+    --background: var(--ion-color-tertiary); //si nose tiene el -- no funciona https://ionicframework.com/docs/api/badge#css-custom-properties
+}
+
+.form-container {
+    background-color: white;
+    height: 100%;
+    max-width: 800px;
+    padding: 10px;
+}
+
+  

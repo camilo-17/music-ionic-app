@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="end">sports</ion-title>
+    <ion-buttons>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <agm-map 
+  *ngIf="currentCenter"
+  [latitude] = "currentCenter.lat"
+  [longitude] = "currentCenter.lng"
+  [zoom] = "defaultZoom"
+  >
+  <agm-marker 
+  [latitude] = "currentCenter.lat"
+  [longitude] = "currentCenter.lng"
+  iconUrl = "assets/icon/bicycle.png"
+  >
+
+  </agm-marker>
+  <agm-polyline [strokeColor]="'red'" *ngIf="coordinates">
+    <agm-polyline-point
+      *ngFor="let coords of coordinates"
+      [latitude]="coords.lat"
+      [longitude]="coords.lng"
+    >
+    </agm-polyline-point>
+  </agm-polyline>
+
+</agm-map>
+<ion-searchbar (ionChange)="searchChange($event)"></ion-searchbar>
+<ion-progress-bar *ngIf="showLoader" type="indeterminate"></ion-progress-bar>
+<ion-list>
+  <ion-item *ngFor="let song of songs; index as i" (click) ="selectSong(song)">
+    <ion-avatar>
+      {{ i+1 }}
+    </ion-avatar>
+      <ion-label>
+        <h2>{{ song.name }}</h2>
+        <h3>{{ song?.album?.name || song?.artists[0]?.name }}</h3>
+        <p> {{ song?.popularity || song?.track_number }}</p>
+      </ion-label>
+  </ion-item>
+</ion-list>
+
+<ion-footer>
+  <app-player></app-player>
+</ion-footer>
+
+</ion-content>
